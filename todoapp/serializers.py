@@ -1,11 +1,10 @@
 from rest_framework import serializers
 
-from userapp.serializers import UserModelSerializer
 from .models import Project, Todo
 
 
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.StringRelatedField(many=True)
+    # user = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Project
@@ -13,7 +12,8 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
-    user = UserModelSerializer()
+    # user = UserModelSerializer()
+    # user = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Todo
