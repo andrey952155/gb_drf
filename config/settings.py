@@ -131,13 +131,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000", ]
-
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:3000', 'http://172.30.176.1:3000', 'http://localhost:3000', ]
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (    # настройка сторонней библиотеки фильтров
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 10
 }

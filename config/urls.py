@@ -23,7 +23,7 @@ from userapp.views import CustomUserListAPIView
 router = DefaultRouter()
 router.register('users', CustomUserListAPIView)
 router.register('todo', TodoViewSet)
-router.register('project', ProjectViewSet)
+router.register('projects', ProjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
