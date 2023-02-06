@@ -1,9 +1,12 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
+from rest_framework import viewsets, mixins
 
 from userapp.models import CustomUser
-from userapp.serializers import UserModelSerializer
+from userapp.serializers import CustomUserSerializer
 
 
-class UserModelViewSet(ModelViewSet):
+class CustomUserListAPIView(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.RetrieveModelMixin,
+                            mixins.UpdateModelMixin):
+    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     queryset = CustomUser.objects.all()
-    serializer_class = UserModelSerializer
+    serializer_class = CustomUserSerializer
