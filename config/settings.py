@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'todoapp',
     'django_filters',
+    'rest_framework.authtoken'
+
 ]
 
 MIDDLEWARE = [
@@ -138,5 +140,15 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,    # настройки пагинации
+
+    'DEFAULT_PERMISSION_CLASSES': [     # права пользователей
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
 }
