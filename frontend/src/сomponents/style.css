@@ -13,6 +13,7 @@
       text-align: left;
       font-size: 16px;
       word-wrap: break-word;
+      text-decoration: none;
     }
 
     .block-text {
@@ -25,4 +26,8 @@
 
     .block-content:hover {
       opacity: 0.6
+    }
+
+    .active {
+        opacity: 0.5;
     }
