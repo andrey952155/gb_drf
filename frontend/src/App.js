@@ -1,41 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import axios from 'axios'
-import UserList from './сomponents/User';
-import Menu from "./сomponents/Menu";
-import Footer from "./сomponents/footer";
+import Layout from "./сomponents/Layout";
+import {Route, Routes} from "react-router-dom";
+import Projects from "./сomponents/Projects";
+import Users from "./сomponents/Users";
+import User from "./сomponents/User";
+import Todo from "./сomponents/Todo";
+import Homepage from "./сomponents/Homepage";
+import Auth from "./сomponents/Auth";
+
+function App() {
+
+    const [token, setToken] = useState()
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            'users': []
-        }
-    }
 
-    componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/users')
-            .then(response => {
-                const users = response.data
-                this.setState(
-                    {
-                        'users': users
-                    }
-                )
-            }).catch(error => console.log(error))
-    }
-
-
-    render() {
-        return (
-            <div>
-                <Menu/>
-                <UserList users={this.state.users}/>
-                <Footer/>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route index element={<Homepage/>}/>
+                    <Route path={'projects'} element={<Projects/>}/>
+                    <Route path={'todo'} element={<Todo/>}/>
+                    <Route path={'users'} element={<Users/>}/>
+                    <Route path={'users/:id'} element={<User/>}/>
+                    <Route path={'login'} element={<Auth token={token} />}/>
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
