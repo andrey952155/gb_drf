@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
-const User = () => {
+const User = (props) => {
     const {id} = useParams();
     const [user, setUser] = useState(null);
     useEffect(() => {
