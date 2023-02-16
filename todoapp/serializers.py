@@ -4,7 +4,6 @@ from .models import Project, Todo
 
 
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
-    # user = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Project
@@ -12,8 +11,6 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
-    # user = UserModelSerializer()
-    # user = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Todo
