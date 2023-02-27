@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import ProjectForm from "./ProjectForm";
+import {NavLink} from "react-router-dom";
 
 const Projects = () => {
 
@@ -17,10 +19,12 @@ const Projects = () => {
 
     return (
         <div>
-            <h1>Projects page</h1>
+            <h1>Открытые проекты</h1>
             {React.Children.toArray(
             projects.map(i => <div className={"block-content"}>{i.name_project}</div>)
                 )}
+            <br/>
+            <NavLink to={"/add_project/"} className={"block-content"}>Добавить новый</NavLink>
         </div>
     )
 }

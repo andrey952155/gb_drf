@@ -9,6 +9,7 @@ import Todo from "./сomponents/Todo";
 import Homepage from "./сomponents/Homepage";
 import Auth from "./сomponents/Auth";
 import Cookies from "universal-cookie";
+import ProjectForm from "./сomponents/ProjectForm";
 
 
 function App() {
@@ -31,7 +32,6 @@ function App() {
         setToken('')
         };
 
-
     return (
         <div>
             <Routes>
@@ -42,6 +42,7 @@ function App() {
                     <Route path={'users'} element={<Users/>}/>
                     <Route path={'users/:id'} element={<User/>}/>
                     <Route path={'login'} element={<Auth set_token={set_token} />}/>
+                    <Route path={'add_project'} element={<ProjectForm token={token} />}/>
                 </Route>
             </Routes>
         </div>

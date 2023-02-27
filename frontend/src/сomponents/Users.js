@@ -14,7 +14,6 @@ const Users = () => {
                 "http://127.0.0.1:8000/api/users",
             );
             setUsers(result.data['results']);
-            console.log(result.data['results'])
         };
         fetchData();
     }, []);
