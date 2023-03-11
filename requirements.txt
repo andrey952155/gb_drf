@@ -3,3 +3,7 @@ djangorestframework
 markdown
 django-filter
 django-cors-headers
+mixer
+drf-yasg
+psycopg2==2.8.6
+gunicorn
